@@ -1,7 +1,7 @@
 ---
 title: "Project 2"
 subtitle: "Proposal"
-authors: ""
+author: "Zoe Drajem"
 format: html
 editor: visual
 ---
@@ -20,11 +20,31 @@ library(tidyverse)
 #| label: load-data
 #| message: false
 
-## read data 
-```
+setwd("/Users/zoe/Downloads")
 
+fountains <- read.csv("Drinking_Fountains.csv")
+
+neighborhoods <- read.csv("Neighborhoods_regions.csv") 
+
+dim(fountains)
+
+dim(neighborhoods)
+```
 
 ## Reason for Choosing this Dataset
 
+The goal of this project is to create a series of maps which visualize the structural attempt to make people living on the streets in Portland invisible.
 
 ## Questions and Analysis Plan
+
+The data I am using comes from the City of Portland GIS open data platform. The variables come as their own individual layers that will need to be imported and combined in R. The question that motivates my analysis is: **Why might people living outdoors in the city of Portland cluster in certain neighborhoods?**
+
+To address this question I will first create a map of the reports of illegal camping in the city and the public resources in the city by neighborhood (i.e. bathrooms, drinking fountains, public trails, community gardens, and publicly owned land). I will do this by coloring the Portland neighborhoods by the number of public resources to see if there is a relationship between the places people are choosing to live and the availability of public resources. This will require developing a metric to represent the amount of multiple kinds of resources accounted for in different data sets. 
+
+Then I will create a map of the reports of illegal camping by neighborhood, and colored by average household income. This will help me assess if there is any relationship between the places people are choosing to live and the wealth of the neighborhoods they select. In doing this analysis, I will have to stay attentive to the fact that all of these data points originate from reports of illegal camping, so it's possible that some neighborhoods are less likely to report people living outside, and thus it could appear like there are lower rates of outdoor residents in those areas. 
+
+Then I will create a map of the number of the public resources by neighborhood overlaid with average household income to see if average income is likely to affect the number of public resources available in a given neighborhood. This will enable me to get a fuller picture of what might make a neighborhood attractive. 
+
+Reasons for choosing a particular neighborhood as a destination, however, are incomplete without a further analysis of data representing campsites that were actually removed by the city of Portland. Thus, my final map will represent the city of Portland colored by campsite removal rates. These rates will be calculated by grouping the data by neighborhood and then dividing the number of reported illegal campsites by the number of removed campsites. 
+
+At this point, I would hope to draw some guesses about why people living outdoors might be more likely to cluster in certain spaces. Does it have to do with access to resources? Or is it more directly related to communities that are prioritized for campsite removal? And if it is about toleration – what types of communities are more likely to be tolerant of those living outside and which are more likely to defer to removal. How does income play into that? These are important questions which will not only allow readers to have a better understanding of the experience of people living outside within the city of Portland, but could also serve as a guide for those facing hardship as they try to find spaces where they can live unbothered by a government whose only intention is to make them invisible.  
