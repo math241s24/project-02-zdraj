@@ -1,0 +1,92 @@
+---
+title: "presentation"
+output: html_document
+date: "2024-04-20"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(sf)
+library(tidyverse)
+library(tidycensus)
+library(ggthemes)
+```
+```{r}
+setwd('~/Documents/project-02-zdraj')
+
+nbhd <- st_read('data/Neighborhood_Boundaries/Neighborhood_Boundaries.shp')
+camp <- st_read('data/IRP_Campsite_Reports/IRP_Campsite_Reports.shp') %>%
+  filter(duplicate == 0) %>%
+  st_intersection(nbhd)
+post <- st_read('data/IRP_Post_Sites/IRP_Post_Sites.shp') %>%
+  st_intersection(nbhd)
+```
+```{r}
+census_api_key("52620b313938030a5a76504b3ad63ed2355a8ce2")
+
+income <- get_acs(geography = "block group", 
+              year = 2021,
+              variables = c(median_income = "B19013_001", total_pop = "B03002_001"), 
+              state = "OR",
+              county = "Multnomah",
+              output = "wide",
+              geometry = TRUE)
+```
+```{r}
+for (neighborhood in nbhd$NAME) {
+  
+df <- nbhd %>%
+  filter(NAME==neighborhood) %>%
+  st_transform(st_crs(income))
+
+median_income <- st_intersection(income, df) %>%
+  drop_na(median_incomeE, total_popE) %>%
+  mutate(prop = total_popE/sum(total_popE)) %>%
+  summarise(sum(median_incomeE*prop)) %>%
+  st_drop_geometry() %>%
+  pull()
+
+nbhd[nbhd$NAME == neighborhood, "median_income"] <- median_income
+}
+  
+```
+```{r}
+nbhd %>% 
+  ggplot(aes(fill=log10(median_income))) +
+  geom_sf() +
+  scale_fill_viridis_c() +
+  geom_sf(data=camp, alpha=0.03) +
+  theme_void()
+
+nbhd %>% 
+  ggplot(aes(fill=log10(median_income))) +
+  geom_sf() +
+  scale_fill_viridis_c() +
+  geom_sf(data=post, alpha=0.03) +
+  theme_void()
+```
+
+```{r}
+
+for (neighborhood in nbhd$NAME) {
+  nbhd_filtered <- nbhd %>%
+    filter(NAME == neighborhood)
+  camp_filtered <- camp %>%
+    st_intersection(nbhd_filtered)
+  post_filtered <- post %>%
+    st_intersection(nbhd_filtered)
+ 
+  nbhd[nbhd$NAME == neighborhood, 'removal_rate'] <- nrow(post_filtered) / nrow(camp_filtered)
+}
+
+ggplot() +
+  geom_sf(data=nbhd, aes(fill=log10(median_income))) +
+  geom_sf(data=camp, color=alpha('blue', .05)) +
+  geom_sf(data=post, color=alpha('red', .05)) +
+  scale_fill_viridis_c()
+```
+
+
