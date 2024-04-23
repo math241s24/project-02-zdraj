@@ -25,6 +25,10 @@ camp <- st_read(paste0(path,'/data/IRP_Campsite_Reports/IRP_Campsite_Reports.shp
   st_intersection(nbhd)
 post <- st_read(paste0(path,'/data/IRP_Post_Sites/IRP_Post_Sites.shp')) %>%
   st_intersection(nbhd)
+
+saveRDS(camp, paste0(path, 'output/camp.rds'))  
+
+saveRDS(post, paste0(path, 'output/post.rds'))  
 ```
 
 ```{r}
@@ -60,21 +64,38 @@ saveRDS(nbhd, paste0(path, 'output/nbhd_data.rds'))
 ```
 
 ```{r}
-nbhd %>% 
-  ggplot(aes(fill=log10(median_income))) +
+p1 <- nbhd %>% 
+  ggplot(aes(fill=median_income)) +
   geom_sf() +
   scale_fill_viridis_c() +
   geom_sf(data=camp, alpha=0.03) +
-  theme_void()
+  theme_void() +
+  theme(panel.background=element_rect(fill="white")) +
+  labs(title="Reported Camp Sites", fill="Median Income")
 
 p2 <- nbhd %>% 
-  ggplot(aes(fill=log10(median_income))) +
+  ggplot(aes(fill=median_income)) +
   geom_sf() +
   scale_fill_viridis_c() +
   geom_sf(data=post, alpha=0.03) +
-  theme_void()
+  theme_void() +
+  theme(panel.background=element_rect(fill='white')) +
+  labs(title="Camp Sites Posted for Removal", fill="Median Income")
+
+ggsave(p1, filename = paste0(path,'output/Map1.png'))
 
 ggsave(p2, filename = paste0(path,'output/Map2.png'))
+
+p3 <- ggplot() +
+  geom_sf(data=nbhd, aes(fill=median_income)) +
+  geom_sf(data=camp, color=alpha('blue', .05)) +
+  geom_sf(data=post, color=alpha('red', .05)) +
+  scale_fill_viridis_c() + 
+  theme_void() +
+  theme(panel.background=element_rect(fill='white')) +
+  labs(title="Camp Sites and Posted Sites", fill="Median Income")
+
+ggsave(p3, filename = paste0(path,'output/Map3.png'))
 ```
 
 ```{r}
@@ -86,15 +107,45 @@ for (neighborhood in nbhd$NAME) {
     st_intersection(nbhd_filtered)
   post_filtered <- post %>%
     st_intersection(nbhd_filtered)
- 
+  nbhd[nbhd$NAME == neighborhood, 'n_posted'] <- nrow(post_filtered)
+  nbhd[nbhd$NAME == neighborhood, 'n_camps'] <- nrow(camp_filtered)
   nbhd[nbhd$NAME == neighborhood, 'removal_rate'] <- nrow(post_filtered) / nrow(camp_filtered)
 }
 
-ggplot() +
-  geom_sf(data=nbhd, aes(fill=log10(median_income))) +
-  geom_sf(data=camp, color=alpha('blue', .05)) +
-  geom_sf(data=post, color=alpha('red', .05)) +
-  scale_fill_viridis_c()
+p5 <- ggplot() +
+  geom_sf(data=nbhd, aes(fill=median_income)) +
+  scale_fill_viridis_c() +
+  theme_void() +
+  theme(panel.background=element_rect()) +
+  labs(title="Median Income by Neighborhood", fill="Removal Rate")
+
+p4 <- ggplot() +
+  geom_sf(data=nbhd, aes(fill=removal_rate)) +
+  scale_fill_viridis_c() +
+  theme_void() +
+  theme(panel.background=element_rect()) +
+  labs(title="Removal Rate by Neighborhood", fill="Removal Rate")
+  
+ggsave(p4, filename = paste0(path,'output/Map4.png'))
+
+ggsave(p5, filename = paste0(path,'output/Map5.png'))
 ```
 
+```{r}
+
+ggplot(nbhd, aes(x=median_income, y=n_camps, color=log(removal_rate))) + 
+  geom_point(size=3) +
+  scale_color_viridis_c()
+
+```
+Exploring the way that we criminaliz homelessnesss by controlling the way that people occpy space. 
+
+
+Maybe there's more police activity because they're less concerned with disrupting the people who live there.
+
+Given our exploratory plots of where people are camping, its not necisarrily that higher income areas are more receptive, but rather that there just arent people camping in those areas. 
+
+For my final project, I plan to conduct a linear model exploring the relationship between removal rate and median income. Hopefully this will shed more light on the issue. 
+
+For future analysis, it would be helpful to incoperate data that represents camp size. 
 

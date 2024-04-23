@@ -37,17 +37,74 @@ knitr::opts_chunk$set(
 #| label: load-data
 #| include: true
 #| echo: false
-nbhd <- readRDS('output/nbhd.rds')
 
-ggplot(nbhd)
+setwd('~/Documents/project-02-zdraj/')
+
+nbhd <- readRDS('output/nbhd_data.rds')
+
+camp <- readRDS('output/camp.rds')
+
+post <- readRDS('output/post.rds')
+
 ```
 
-## New slide
+## The Big Question
 
-+ First idea
-  - sub-idea
++ How does hostility function spatially in the city of Portland? How can we use statistical methods to better allocate infrastructure in the city?
+
+
+## The Data
   
-+ Second idea
-  - 
++ Impact Reduction Program (IRP) via the One Point of Contact Campsite Reporting System
++ Citizens make reports
++ Removals are posted by the IRP, upon their assessments
   
-![Map1](output/Map2.png)  
+## The Data
+
+```{r}
+camp %>%
+  sf::st_drop_geometry() %>%
+  glimpse()
+```
+
+## Maps
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](output/Map1.png) 
+:::
+
+::: {.column width="50%"}
+![](output/Map2.png)
+:::
+
+::::
+
+## More Maps
+:::: {.columns}
+
+::: {.column width="60%"}
+![](output/Map3.png)
+:::
+
+::::
+
+## Even More Maps {.smaller}
+::::{.columns}
+
+:::{.column width="50%"}
+
+![](output/Map5.png)
+:::
+::: {.column width="50%"}
+![](output/Map4.png)
+:::
+
+::::
+
+## Implications 
+
++ It appears like lower income neighborhoods typically have higher removal rates 
++ I plan to fit a linear model exploring the relationship between removal rate and median income. Hopefully this will shed more light on the situation.
++ For future analysis, it would be helpful to incorporate data that represents the sizes of campsites. 
