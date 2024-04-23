@@ -14,16 +14,19 @@ library(tidyverse)
 library(tidycensus)
 library(ggthemes)
 ```
-```{r}
-setwd('~/Documents/project-02-zdraj')
 
-nbhd <- st_read('data/Neighborhood_Boundaries/Neighborhood_Boundaries.shp')
-camp <- st_read('data/IRP_Campsite_Reports/IRP_Campsite_Reports.shp') %>%
+```{r}
+path <- '/Users/zoe/Documents/project-02-zdraj/'
+
+nbhd <- st_read(paste0(path,'data/Neighborhood_Boundaries/Neighborhood_Boundaries.shp'))
+
+camp <- st_read(paste0(path,'/data/IRP_Campsite_Reports/IRP_Campsite_Reports.shp')) %>%
   filter(duplicate == 0) %>%
   st_intersection(nbhd)
-post <- st_read('data/IRP_Post_Sites/IRP_Post_Sites.shp') %>%
+post <- st_read(paste0(path,'/data/IRP_Post_Sites/IRP_Post_Sites.shp')) %>%
   st_intersection(nbhd)
 ```
+
 ```{r}
 census_api_key("52620b313938030a5a76504b3ad63ed2355a8ce2")
 
@@ -35,6 +38,7 @@ income <- get_acs(geography = "block group",
               output = "wide",
               geometry = TRUE)
 ```
+
 ```{r}
 for (neighborhood in nbhd$NAME) {
   
@@ -51,8 +55,10 @@ median_income <- st_intersection(income, df) %>%
 
 nbhd[nbhd$NAME == neighborhood, "median_income"] <- median_income
 }
-  
+
+saveRDS(nbhd, paste0(path, 'output/nbhd_data.rds'))  
 ```
+
 ```{r}
 nbhd %>% 
   ggplot(aes(fill=log10(median_income))) +
@@ -61,12 +67,14 @@ nbhd %>%
   geom_sf(data=camp, alpha=0.03) +
   theme_void()
 
-nbhd %>% 
+p2 <- nbhd %>% 
   ggplot(aes(fill=log10(median_income))) +
   geom_sf() +
   scale_fill_viridis_c() +
   geom_sf(data=post, alpha=0.03) +
   theme_void()
+
+ggsave(p2, filename = paste0(path,'output/Map2.png'))
 ```
 
 ```{r}

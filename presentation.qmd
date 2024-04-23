@@ -12,14 +12,16 @@ execute:
 
 ```{r}
 #| label: load-packages
-#| include: false
+#| include: true
+#| echo: false
 
 library(tidyverse)
 ```
 
 ```{r}
 #| label: setup
-#| include: false
+#| include: true
+#| echo: false
 
 # For better figure resolution
 knitr::opts_chunk$set(
@@ -33,5 +35,19 @@ knitr::opts_chunk$set(
 
 ```{r}
 #| label: load-data
-#| include: false
+#| include: true
+#| echo: false
+nbhd <- readRDS('output/nbhd.rds')
+
+ggplot(nbhd)
 ```
+
+## New slide
+
++ First idea
+  - sub-idea
+  
++ Second idea
+  - 
+  
+![Map1](output/Map2.png)  
