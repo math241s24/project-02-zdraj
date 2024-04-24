@@ -117,7 +117,7 @@ p5 <- ggplot() +
   scale_fill_viridis_c() +
   theme_void() +
   theme(panel.background=element_rect()) +
-  labs(title="Median Income by Neighborhood", fill="Removal Rate")
+  labs(title="Median Income by Neighborhood", fill="Median Income")
 
 p4 <- ggplot() +
   geom_sf(data=nbhd, aes(fill=removal_rate)) +

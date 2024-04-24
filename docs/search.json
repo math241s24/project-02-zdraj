@@ -72,50 +72,64 @@
   {
     "objectID": "presentation.html#the-big-question",
     "href": "presentation.html#the-big-question",
-    "title": "Project title",
+    "title": "Hostility in Portland",
     "section": "The Big Question",
-    "text": "The Big Question\n\nHow does hostility function spatially in the city of Portland? How can we use statistical methods to better allocate infrastructure in the city?"
+    "text": "The Big Question\n\nHow does hostility towards unhoused people function spatially in the city of Portland?\n\nWhere are people most vulnerable?\nHow can we use statistical methods to better allocate public infrastructure in the city?"
   },
   {
     "objectID": "presentation.html#the-data",
     "href": "presentation.html#the-data",
-    "title": "Project title",
+    "title": "Hostility in Portland",
     "section": "The Data",
-    "text": "The Data\n\nImpact Reduction Program (IRP) via the One Point of Contact Campsite Reporting System\nCitizens make reports\nRemovals are posted by the IRP, upon their assessments"
+    "text": "The Data\n\nImpact Reduction Program (IRP) via the One Point of Contact Campsite Reporting System\n\nCitizens make reports\nRemovals are posted by the IRP, upon their assessments\n\nCensus Data\n\nMedian Income\nTotal Population"
   },
   {
     "objectID": "presentation.html#the-data-1",
     "href": "presentation.html#the-data-1",
-    "title": "Project title",
+    "title": "Hostility Made Spatial",
     "section": "The Data",
     "text": "The Data\n\n\nRows: 49,547\nColumns: 16\n$ OBJECTID   &lt;int&gt; 8408, 9178, 10828, 19467, 33670, 41371, 46408, 48697, 60186…\n$ inc_date_c &lt;date&gt; 2023-10-29, 2023-10-26, 2023-10-20, 2023-09-22, 2023-08-08…\n$ inc_id     &lt;chr&gt; \"23-205185\", \"23-204415\", \"23-202765\", \"23-194126\", \"23-179…\n$ duplicate  &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ item_date_ &lt;chr&gt; \"20231029164059\", \"20231026105134\", \"20231020151824\", \"2023…\n$ IS_VEHICLE &lt;chr&gt; NA, NA, \"yes\", NA, NA, NA, NA, NA, NA, NA, \"yes\", \"yes\", NA…\n$ report_id  &lt;chr&gt; \"2720887\", \"2719093\", \"2715136\", \"2693065\", \"2655848\", \"263…\n$ OBJECTID.1 &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ NAME       &lt;chr&gt; \"LINNTON\", \"LINNTON\", \"LINNTON\", \"LINNTON\", \"LINNTON\", \"LIN…\n$ COMMPLAN   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n$ SHARED     &lt;chr&gt; \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\",…\n$ COALIT     &lt;chr&gt; \"NWNW\", \"NWNW\", \"NWNW\", \"NWNW\", \"NWNW\", \"NWNW\", \"NWNW\", \"NW…\n$ HORZ_VERT  &lt;chr&gt; \"HORZ\", \"HORZ\", \"HORZ\", \"HORZ\", \"HORZ\", \"HORZ\", \"HORZ\", \"HO…\n$ Shape_Leng &lt;dbl&gt; 53244.05, 53244.05, 53244.05, 53244.05, 53244.05, 53244.05,…\n$ MAPLABEL   &lt;chr&gt; \"Linnton\", \"Linnton\", \"Linnton\", \"Linnton\", \"Linnton\", \"Lin…\n$ ID         &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…"
   },
   {
     "objectID": "presentation.html#maps",
     "href": "presentation.html#maps",
-    "title": "Project title",
+    "title": "Hostility in Portland",
     "section": "Maps",
     "text": "Maps"
   },
   {
     "objectID": "presentation.html#more-maps",
     "href": "presentation.html#more-maps",
-    "title": "Project title",
+    "title": "Hostility in Portland",
     "section": "More Maps",
     "text": "More Maps"
   },
   {
     "objectID": "presentation.html#even-more-maps",
     "href": "presentation.html#even-more-maps",
-    "title": "Project title",
+    "title": "Hostility in Portland",
     "section": "Even More Maps",
     "text": "Even More Maps"
   },
   {
     "objectID": "presentation.html#implications",
     "href": "presentation.html#implications",
-    "title": "Project title",
+    "title": "Hostility in Portland",
     "section": "Implications",
-    "text": "Implications\n\nIt appears like lower income neighborhoods typically have higher removal rates\nI plan to fit a linear model exploring the relationship between removal rate and median income. Hopefully this will shed more light on the situation.\nFor future analysis, it would be helpful to incorporate data that represents the sizes of campsites."
+    "text": "Implications\n\nIt appears like lower income neighborhoods typically have higher removal rates\n\nBuissnesses?\nPolice activity?\nCamp sizes?"
+  },
+  {
+    "objectID": "presentation.html#limitations",
+    "href": "presentation.html#limitations",
+    "title": "Hostility in Portland",
+    "section": "Limitations",
+    "text": "Limitations\n\nWe only get points for where people are reported\nA single point can refer to over 30 people at a given site\n\nBigger targets for displacement\n\n\n\n\nRows: 49,547\nColumns: 16\n$ OBJECTID   &lt;int&gt; 8408, 9178, 10828, 19467, 33670, 41371, 46408, 48697, 60186…\n$ inc_date_c &lt;date&gt; 2023-10-29, 2023-10-26, 2023-10-20, 2023-09-22, 2023-08-08…\n$ inc_id     &lt;chr&gt; \"23-205185\", \"23-204415\", \"23-202765\", \"23-194126\", \"23-179…\n$ duplicate  &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ item_date_ &lt;chr&gt; \"20231029164059\", \"20231026105134\", \"20231020151824\", \"2023…\n$ IS_VEHICLE &lt;chr&gt; NA, NA, \"yes\", NA, NA, NA, NA, NA, NA, NA, \"yes\", \"yes\", NA…\n$ report_id  &lt;chr&gt; \"2720887\", \"2719093\", \"2715136\", \"2693065\", \"2655848\", \"263…\n$ OBJECTID.1 &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ NAME       &lt;chr&gt; \"LINNTON\", \"LINNTON\", \"LINNTON\", \"LINNTON\", \"LINNTON\", \"LIN…\n$ COMMPLAN   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n$ SHARED     &lt;chr&gt; \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\",…\n$ COALIT     &lt;chr&gt; \"NWNW\", \"NWNW\", \"NWNW\", \"NWNW\", \"NWNW\", \"NWNW\", \"NWNW\", \"NW…\n$ HORZ_VERT  &lt;chr&gt; \"HORZ\", \"HORZ\", \"HORZ\", \"HORZ\", \"HORZ\", \"HORZ\", \"HORZ\", \"HO…\n$ Shape_Leng &lt;dbl&gt; 53244.05, 53244.05, 53244.05, 53244.05, 53244.05, 53244.05,…\n$ MAPLABEL   &lt;chr&gt; \"Linnton\", \"Linnton\", \"Linnton\", \"Linnton\", \"Linnton\", \"Lin…\n$ ID         &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…"
+  },
+  {
+    "objectID": "presentation.html#looking-ahead",
+    "href": "presentation.html#looking-ahead",
+    "title": "Hostility in Portland",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\n\nI plan to fit a linear model exploring the relationship between removal rate and median income. Hopefully this will shed more light on the situation.\nI also plan to create a map of the public resources in the city on top of the median income map to get a sense for who has the best access to public infrastructure.\nFor future analysis, it would be helpful to incorporate data that represents the size of campsites."
   }
 ]

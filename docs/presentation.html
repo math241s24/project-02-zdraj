@@ -10,8 +10,8 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
-  <meta name="author" content="Team">
-  <title>Project 2 - Project title</title>
+  <meta name="author" content="Zoe Drajem">
+  <title>Project 2 - Hostility in Portland</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -325,13 +325,13 @@
     <div class="slides">
 
 <section id="title-slide" data-slide-number="none" class="quarto-title-block center">
-  <h1 class="title">Project title</h1>
-  <p class="subtitle">Project 2</p>
+  <h1 class="title">Hostility in Portland</h1>
+  <p class="subtitle">Final Project</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Team 
+Zoe Drajem 
 </div>
 </div>
 </div>
@@ -340,19 +340,37 @@ Team
 <section id="the-big-question" class="slide level2">
 <h2>The Big Question</h2>
 <ul>
-<li>How does hostility function spatially in the city of Portland? How can we use statistical methods to better allocate infrastructure in the city?</li>
+<li>How does hostility towards unhoused people function spatially in the city of Portland?
+<ul>
+<li>Where are people most vulnerable?</li>
+<li>How can we use statistical methods to better allocate public infrastructure in the city?</li>
+</ul></li>
 </ul>
 </section>
 <section id="the-data" class="slide level2">
 <h2>The Data</h2>
 <ul>
-<li>Impact Reduction Program (IRP) via the One Point of Contact Campsite Reporting System</li>
+<li>Impact Reduction Program (IRP) via the One Point of Contact Campsite Reporting System
+<ul>
 <li>Citizens make reports</li>
 <li>Removals are posted by the IRP, upon their assessments</li>
+</ul></li>
+<li>Census Data
+<ul>
+<li>Median Income</li>
+<li>Total Population</li>
+</ul></li>
 </ul>
 </section>
-<section id="the-data-1" class="slide level2">
-<h2>The Data</h2>
+<section id="limitations" class="slide level2">
+<h2>Limitations</h2>
+<ul>
+<li>We only get points for where people are reported</li>
+<li>A single point can refer to over 30 people at a given site
+<ul>
+<li>Bigger targets for displacement</li>
+</ul></li>
+</ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 49,547
@@ -407,9 +425,20 @@ $ ID         &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 <section id="implications" class="slide level2">
 <h2>Implications</h2>
 <ul>
-<li>It appears like lower income neighborhoods typically have higher removal rates</li>
+<li>It appears like lower income neighborhoods typically have higher removal rates
+<ul>
+<li>Buissnesses?</li>
+<li>Police activity?</li>
+<li>Camp sizes?</li>
+</ul></li>
+</ul>
+</section>
+<section id="looking-ahead" class="slide level2">
+<h2>Looking Ahead</h2>
+<ul>
 <li>I plan to fit a linear model exploring the relationship between removal rate and median income. Hopefully this will shed more light on the situation.</li>
-<li>For future analysis, it would be helpful to incorporate data that represents the sizes of campsites.</li>
+<li>I also plan to create a map of the public resources in the city on top of the median income map to get a sense for who has the best access to public infrastructure.</li>
+<li>For future analysis, it would be helpful to incorporate data that represents the size of campsites.</li>
 </ul>
 
 <div class="footer footer-default">

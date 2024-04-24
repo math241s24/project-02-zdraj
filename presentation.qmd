@@ -1,7 +1,7 @@
 ---
-title: "Project title"
-subtitle: "Project 2"
-author: "Team"
+title: "Hostility in Portland"
+subtitle: "Final Project"
+author: "Zoe Drajem"
 title-slide-attributes:
   data-slide-number: none
 format: revealjs
@@ -50,16 +50,26 @@ post <- readRDS('output/post.rds')
 
 ## The Big Question
 
-+ How does hostility function spatially in the city of Portland? How can we use statistical methods to better allocate infrastructure in the city?
++ How does hostility towards unhoused people function spatially in the city of Portland? 
+  - Where are people most vulnerable? 
+  - How can we use statistical methods to better allocate public infrastructure in the city?
 
 
 ## The Data
   
 + Impact Reduction Program (IRP) via the One Point of Contact Campsite Reporting System
-+ Citizens make reports
-+ Removals are posted by the IRP, upon their assessments
+  - Citizens make reports
+  - Removals are posted by the IRP, upon their assessments
   
-## The Data
++ Census Data
+  - Median Income 
+  - Total Population
+  
+## Limitations
+
++ We only get points for where people are reported
++ A single point can refer to over 30 people at a given site
+  - Bigger targets for displacement
 
 ```{r}
 camp %>%
@@ -106,5 +116,12 @@ camp %>%
 ## Implications 
 
 + It appears like lower income neighborhoods typically have higher removal rates 
+  - Buissnesses?
+  - Police activity? 
+  - Camp sizes?
+  
+## Looking Ahead
+
 + I plan to fit a linear model exploring the relationship between removal rate and median income. Hopefully this will shed more light on the situation.
-+ For future analysis, it would be helpful to incorporate data that represents the sizes of campsites. 
++ I also plan to create a map of the public resources in the city on top of the median income map to get a sense for who has the best access to public infrastructure. 
++ For future analysis, it would be helpful to incorporate data that represents the size of campsites. 
