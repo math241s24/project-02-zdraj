@@ -116,7 +116,7 @@ camp %>%
 ## Implications 
 
 + It appears like lower income neighborhoods typically have higher removal rates 
-  - Buissnesses?
+  - Businesses?
   - Police activity? 
   - Camp sizes?
   
