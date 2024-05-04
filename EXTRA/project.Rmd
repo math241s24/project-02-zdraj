@@ -88,7 +88,7 @@ ggsave(p2, filename = paste0(path,'output/Map2.png'))
 
 p3 <- ggplot() +
   geom_sf(data=nbhd, aes(fill=median_income)) +
-  geom_sf(data=camp, color=alpha('blue', .05)) +
+  geom_sf(data=camp, color=alpha('pink', .05)) +
   geom_sf(data=post, color=alpha('red', .05)) +
   scale_fill_viridis_c() + 
   theme_void() +
@@ -183,10 +183,35 @@ not_contained <- filter(camp, !(OBJECTID %in% contained$OBJECTID))
 #  min_distances <- c(min_distances, st_distance(camp[i,], zoning[j,]))
 # }
 
-ggplot(nbhd) +
+p6 <- ggplot() +
+  geom_sf(data=nbhd, aes(fill=median_income)) +
+  geom_sf(data=zoning, alpha=.6, fill='red') +
+  scale_fill_viridis_c() +
+  theme_void() +
+  theme(panel.background=element_rect(fill="white")) +
+  labs(title="Median Income and Comercial Zones", fill="Median Income")
+
+p7 <- ggplot(nbhd) +
   geom_sf() +
-  geom_sf(data=zoning, alpha=.5, fill='blue') +
-  geom_sf(data=camp, alpha=.03, color='red')
+  geom_sf(data=zoning, alpha=.6, fill='blue') +
+  geom_sf(data=camp, alpha=.03, color='pink') +
+  theme_void() +
+  theme(panel.background=element_rect(fill="white")) +
+  labs(title="Comercial Zones and Reported Campsites")
+
+p8 <- ggplot(nbhd) +
+  geom_sf() +
+  geom_sf(data=zoning, alpha=.6, fill='blue') +
+  geom_sf(data=post, alpha=.03, color='red') +
+  theme_void() +
+  theme(panel.background=element_rect(fill="white")) +
+  labs(title="Comercial Zones and Posted Campsites")
+
+ggsave(p6, filename = paste0(path,'output/Map6.png'))
+
+ggsave(p7, filename = paste0(path,'output/Map7.png'))
+
+ggsave(p8, filename = paste0(path,'output/Map8.png'))
 
 ```
 
