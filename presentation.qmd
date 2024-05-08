@@ -50,26 +50,24 @@ post <- readRDS('output/post.rds')
 
 ## The Big Question
 
-+ How does hostility towards unhoused people function spatially in the city of Portland? 
-  - Where are people most vulnerable? 
-  - How can we use statistical methods to better allocate public infrastructure in the city?
-
+-   How does hostility towards unhoused people function spatially in the city of Portland?
+    -   Where are people most vulnerable?
+    -   How can we use statistical methods to better allocate public infrastructure in the city?
 
 ## The Data
-  
-+ Impact Reduction Program (IRP) via the One Point of Contact Campsite Reporting System
-  - Citizens make reports
-  - Removals are posted by the IRP, upon their assessments
-  
-+ Census Data
-  - Median Income 
-  - Total Population
-  
+
+-   Impact Reduction Program (IRP) via the One Point of Contact Campsite Reporting System
+    -   Citizens make reports
+    -   Removals are posted by the IRP, upon their assessments
+-   Census Data
+    -   Median Income
+    -   Total Population
+
 ## Limitations
 
-+ We only get points for where people are reported
-+ A single point can refer to over 30 people at a given site
-  - Bigger targets for displacement
+-   We only get points for where people are reported
+-   A single point can refer to over 30 people at a given site
+    -   Bigger targets for displacement
 
 ```{r}
 camp %>%
@@ -79,49 +77,45 @@ camp %>%
 
 ## Maps
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
-![](output/Map1.png) 
+![](output/Map1.png)
 :::
 
 ::: {.column width="50%"}
 ![](output/Map2.png)
 :::
-
-::::
+:::
 
 ## More Maps
-:::: {.columns}
 
+::: columns
 ::: {.column width="60%"}
 ![](output/Map3.png)
 :::
-
-::::
+:::
 
 ## Even More Maps {.smaller}
-::::{.columns}
 
-:::{.column width="50%"}
-
+::: columns
+::: {.column width="50%"}
 ![](output/Map5.png)
 :::
+
 ::: {.column width="50%"}
 ![](output/Map4.png)
 :::
+:::
 
-::::
+## Implications
 
-## Implications 
+-   It appears like lower income neighborhoods typically have higher removal rates
+    -   Businesses?
+    -   Police activity?
+    -   Camp sizes?
 
-+ It appears like lower income neighborhoods typically have higher removal rates 
-  - Businesses?
-  - Police activity? 
-  - Camp sizes?
-  
 ## Looking Ahead
 
-+ I plan to fit a linear model exploring the relationship between removal rate and median income. Hopefully this will shed more light on the situation.
-+ I also plan to create a map of the public resources in the city on top of the median income map to get a sense for who has the best access to public infrastructure. 
-+ For future analysis, it would be helpful to incorporate data that represents the size of campsites. 
+-   I plan to fit a linear model exploring the relationship between removal rate and median income. Hopefully this will shed more light on the situation.
+-   I also plan to create a map of the public resources in the city on top of the median income map to get a sense for who has the best access to public infrastructure.
+-   For future analysis, it would be helpful to incorporate data that represents the size of campsites.

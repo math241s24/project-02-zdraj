@@ -1,7 +1,7 @@
 ---
-title: ""
+title: "Making Hostility Spatial: Mapping The Forced Displacement of Campsites in Portland"
 subtitle: "Project 2"
-author: ""
+author: "Zoe Drajem"
 format: html
 editor: visual
 execute:
@@ -12,4 +12,23 @@ execute:
 
 ## Abstract
 
+This project investigates how hostility towards unhoused people camping in the city of Portland functions spatially by asking: where are people most vulnerable to forced displacement? Through a series of maps which display reported campsites and sites posted for removal from the beginning of 2023 to April 2024 along with a series of explanatory variables, this question is given a more tangible shape. I ultimately argue that commercial districts are most hostile to unhoused people as the reports of illegal camping, and the sites that are posted for removal are largely concentrated in the parts of the city that are zoned for commercial use.
+
 ## Introduction
+
+What is especially troubling about Portland is the perceived difference between “van life” and “life in a van.” Streets parked up with \$80,000 Mercedes sprinter vans owned by Intel executives are what we are all supposed to strive for, while victims of skyrocketing rent prices and addiction whose last option is a worn- down camper van are swept by city officials every other week. My undergraduate thesis considered the extent to which certain forms of free transiency and “living off the grid” are perceived as threatening to society. This project builds on my historical analysis by investigating how contemporary hostility towards unhoused people living in Portland functions spatially. I.e.: where are people most vulnerable?
+
+## The Data
+
+The Impact Reduction Program (IRP) publicly supplies information from their One Point of Contact Campsite Reporting System which provides some transparency around the experience of unhoused people in the city. The data I am working with contains two parts. The first are the “Campsite Reports” which are all the cataloged reports of illegal camping filed by residents since the beginning of 2023 (over 130,000 points). Each row of the data set reflects one report of one campsite. Upon reception of these reports, the IRP investigates the sites to determine if they meet the criteria for forced displacement. If the IRP deems the sites “threatening” then the campsite is posted for removal and is added as a data point to the “Post Sites” layer. My goal here, is to investigate potential explanatory variables that might account for the higher rates of reports, and removals in certain parts of the city. 
+
+To investigate this question I turn to both median income by neighborhood and zoning as possible explanations. The data on median income comes from the census data block groups which I combined and average based on the total population within each in order to get the median income by neighborhood. The hope is to get a sense if there are any types of neighborhoods that are more hostile towards unhoused neighbors. Since ultimately, there was no clear relationship between the two, I turned towards businesses as another possible explanation. Businesses are often more motivated to report campsites because they are perceived as potentially disrupting profits. The zoning data originates from the City of Portland Bureau of Planning and Sustainability. It was filtered to retain only the geometry for all commercial, industrial, non-residential districts. In mapping allocated commercial districts with the campsite reports, a clearer picture of their relationship is visible.
+
+## The Maps
+
+```{r}
+
+knitr::include_graphics('/output/Map1.png')
+
+![Caption for the picture.]('/output/Map1.png')
+```

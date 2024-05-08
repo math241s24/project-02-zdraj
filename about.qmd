@@ -1,7 +1,7 @@
 ---
-title: "Your project title"
+title: "Making Hostility Spatial: Mapping The Forced Displacement of Campsites in Portland"
 format: html
 editor: visual
 ---
 
-This project was developed by XX. For [MATH/STAT241](https://aallorant.github.io/math241s24/) at Reed College. The team is comprised of the following team members.
+This project was developed by Zoe Drajem, for [MATH/STAT241](https://aallorant.github.io/math241s24/) at Reed College. Zoe is a graduating history major who loves RStudio and swimming at Elk Rock.
