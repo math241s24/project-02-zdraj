@@ -27,8 +27,5 @@ To investigate this question I turn to both median income by neighborhood and zo
 ## The Maps
 
 ```{r}
-
-knitr::include_graphics('/output/Map1.png')
-
-![Caption for the picture.]('/output/Map1.png')
+knitr::include_graphics('output/Map1.png')
 ```

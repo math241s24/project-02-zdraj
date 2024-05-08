@@ -123,6 +123,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a></li>
+  <li><a href="#the-maps" id="toc-the-maps" class="nav-link" data-scroll-target="#the-maps">The Maps</a></li>
   </ul>
 </nav>
     </div>
@@ -163,6 +164,16 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="the-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-data">The Data</h2>
+<p>The Impact Reduction Program (IRP) publicly supplies information from their One Point of Contact Campsite Reporting System which provides some transparency around the experience of unhoused people in the city. The data I am working with contains two parts. The first are the “Campsite Reports” which are all the cataloged reports of illegal camping filed by residents since the beginning of 2023 (over 130,000 points). Each row of the data set reflects one report of one campsite. Upon reception of these reports, the IRP investigates the sites to determine if they meet the criteria for forced displacement. If the IRP deems the sites “threatening” then the campsite is posted for removal and is added as a data point to the “Post Sites” layer. My goal here, is to investigate potential explanatory variables that might account for the higher rates of reports, and removals in certain parts of the city.&nbsp;</p>
+<p>To investigate this question I turn to both median income by neighborhood and zoning as possible explanations. The data on median income comes from the census data block groups which I combined and average based on the total population within each in order to get the median income by neighborhood. The hope is to get a sense if there are any types of neighborhoods that are more hostile towards unhoused neighbors. Since ultimately, there was no clear relationship between the two, I turned towards businesses as another possible explanation. Businesses are often more motivated to report campsites because they are perceived as potentially disrupting profits. The zoning data originates from the City of Portland Bureau of Planning and Sustainability. It was filtered to retain only the geometry for all commercial, industrial, non-residential districts. In mapping allocated commercial districts with the campsite reports, a clearer picture of their relationship is visible.</p>
+</section>
+<section id="the-maps" class="level2">
+<h2 class="anchored" data-anchor-id="the-maps">The Maps</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="output/Map1.png" class="img-fluid" width="1050"></p>
+</div>
+</div>
 
 
 </section>
