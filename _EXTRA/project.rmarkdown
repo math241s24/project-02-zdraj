@@ -138,6 +138,7 @@ ggplot(nbhd, aes(x=median_income, y=n_camps, color=log(removal_rate))) +
   scale_color_viridis_c()
 
 ```
+
 Exploring the way that we criminaliz homelessnesss by controlling the way that people occpy space. 
 
 
@@ -149,8 +150,9 @@ For my final project, I plan to conduct a linear model exploring the relationshi
 
 For future analysis, it would be helpful to incoperate data that represents camp size. 
 
+
 ```{r}
-zoningdis <- st_read(paste0(path,'data/zoning_with_distances/zoning_with_distances.shp'))
+zoningdis <- st_read(paste0(path,'data/data/small_zoning_distances.shp'))
 
 keep <- c(
   "Commercial Employment",
@@ -170,18 +172,18 @@ keep <- c(
 zoning <- st_read(paste0(path,'data/Zoning/Zoning.shp')) %>%
   filter(ZONE_DESC %in% keep)
   
-contained <- st_intersection(camp, zoning)
+contained <- st_intersection(post, zoning)
 
-not_contained <- filter(camp, !(OBJECTID %in% contained$OBJECTID))
+not_contained <- filter(post, !(OBJECTID %in% contained$OBJECTID))
 
-# min_distances <- c()
-# for (i in 1:nrow(not_contained)) {
-# if (i %% 100 == 0) {
-#    print(i)
-# }
-#  j <- st_nearest_feature(camp[i,], zoning)
-#  min_distances <- c(min_distances, st_distance(camp[i,], zoning[j,]))
-# }
+min_distances <- c()
+for (i in 1:nrow(not_contained)) {
+  if (i %% 100 == 0) {
+    print(i)
+  }
+  j <- st_nearest_feature(post[i,], zoning)
+  min_distances <- c(min_distances, st_distance(post[i,], zoning[j,]))
+}
 
 p6 <- ggplot() +
   geom_sf(data=nbhd, aes(fill=median_income)) +
@@ -215,7 +217,27 @@ ggsave(p8, filename = paste0(path,'output/Map8.png'))
 
 ```
 
+```{r}
+mean(zoningdis$distance)
+
+mean(post_distances$distance)
 
 
 
+mean(zoningdis$distance == 0)
+
+mean(post_distances$distance == 0)
+
+zoningdis %>%
+  filter(distance != 0) %>%
+  ggplot(aes(distance)) +
+  geom_histogram(binwidth = 20) +
+  coord_cartesian(xlim=c(0, 2750))
+
+post_distances %>%
+  filter(distance != 0) %>%
+  ggplot(aes(distance)) +
+  geom_histogram(binwidth = 20) +
+  coord_cartesian(xlim=c(0, 2750))
+```
 
