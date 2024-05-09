@@ -2,4 +2,20 @@
 # project-02
  template for project 2
  
+ camp, geometry; geometric points marking the location of campsites that are reported by citizens in Portland
+ 
+ post, geometry; geometric points marking the location of campsites that are posted for removal by the IRP
+ 
+ nbhd, geometry; polygons representing the neighborhoods in Portland
+
+ median_income; average household income by neighborhood in the city of Portland
+
+ removal_rate; the proportion of reported campsites that are posted for removal by the IRP
+ 
+ zoning, geometry; polygons representing all of the regions that are zoned as commercial districts in the city of Portland
+ 
+ zoningdis, distance; the distance between a given campsite that was reported, and its nearest commercial zone, when distances are zero, that means they are in a commercial zone
+ 
+ post_distances, distance; the distance between a given campsite that was posted for removal, and its nearest commercial zone, when distances are zero, that means they are in a commercial zone
+ 
  
