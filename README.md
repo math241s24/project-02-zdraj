@@ -1,6 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/QLgpPTVo)
-# project-02
- template for project 2
+# Making Hostility Spatial: Mapping The Forced Displacement of Campsites in Portland
+ By Zoe Drajem
  
  camp, geometry; geometric points marking the location of campsites that are reported by citizens in Portland
  
